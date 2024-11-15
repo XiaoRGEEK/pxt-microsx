@@ -7,7 +7,7 @@
  *  四足狗类 ***************************************************************************************************************************** 
  ****************************************************************************************************************************************/
 
-//% weight=5 color=#B53F32 icon = "\uf1b6"
+//% weight=5 color=#B53F32 icon="\uf1b6"
 namespace XRbit_DOG {
     const movements_json = {
         ACTION_STOP: "FF37000000000000000000000000FF",
@@ -155,9 +155,9 @@ namespace XRbit_DOG {
     //% color="#B53F32"
     export function UartInit(): void {
         serial.redirect(
-            SerialPin.P13,
             SerialPin.P14,
-            BaudRate.BaudRate115200
+            SerialPin.P13,
+            BaudRate.BaudRate9600
         )
     }
 
