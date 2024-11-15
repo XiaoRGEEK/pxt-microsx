@@ -389,11 +389,11 @@ namespace XRbit_DOG {
                 break;
         }
 
-        // ACTION_TEMPLATE[1] = 0x41;
-        // ACTION_TEMPLATE[2] = (leg_num ) + (joint_num);
-        // ACTION_TEMPLATE[3] = angle;
+        ACTION_TEMPLATE[1] = 0x41;
+        ACTION_TEMPLATE[2] = (leg_num ) + (joint_num);
+        ACTION_TEMPLATE[3] = angle;
 
 
-        // serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE))
+        serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE))
     }
 }
