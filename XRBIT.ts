@@ -390,10 +390,62 @@ namespace XRbit_DOG {
         }
 
         ACTION_TEMPLATE[1] = 0x41;
-        ACTION_TEMPLATE[2] = (leg_num ) + (joint_num);
+        ACTION_TEMPLATE[2] = (leg_num) + (joint_num);
         ACTION_TEMPLATE[3] = angle;
 
 
         serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE))
+    }
+
+    //% blockId=ultrasonic block="Ultrasonic"
+    //% color="#B53F32"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Ultrasonic(): number {
+        Trig = DigitalPin.P1;
+        Echo = DigitalPin.P2;
+        // send pulse
+        let list: Array<number> = [0, 0, 0, 0, 0];
+        for (let i = 0; i < 5; i++) {
+            pins.setPull(Trig, PinPullMode.PullNone);
+            pins.digitalWritePin(Trig, 0);
+            control.waitMicros(2);
+            pins.digitalWritePin(Trig, 1);
+            control.waitMicros(15);
+            pins.digitalWritePin(Trig, 0);
+
+            let d = pins.pulseIn(Echo, PulseValue.High, 43200);
+            list[i] = Math.floor(d / 40)
+        }
+        list.sort();
+        let length = (list[1] + list[2] + list[3]) / 3;
+        return Math.floor(length);
+    }
+
+    //% blockId=IR_Sensor block="IR_Sensor|pin %pin| |%value|obstacle"
+    //% weight=100
+    //% blockGap=10
+    //% color="#B53F32"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function IR_Sensor(pin: irPin, value: enIR): boolean {
+        let Pin: DigitalPin;
+        if (pin == 1) {
+            Pin = DigitalPin.P12;
+        }
+        if (pin == 2) {
+            Pin = DigitalPin.P14;
+        }
+        if (pin == 3) {
+            Pin = DigitalPin.P13;
+        }
+
+        pins.setPull(Pin, PinPullMode.PullUp);
+        if (pins.digitalReadPin(Pin) == value) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
