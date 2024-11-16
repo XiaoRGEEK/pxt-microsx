@@ -147,6 +147,13 @@ namespace XRbit_DOG {
         FOOT_JOINT
     }
 
+    export enum enIR {
+        //% blockId="Get" block="Get"
+        Get = 0,
+        //% blockId="NoVoice" block="NoVoice"
+        NoGet = 1
+    }
+
 
 
     //% blockId=UartInit block="UartInit"
@@ -423,22 +430,14 @@ namespace XRbit_DOG {
         return Math.floor(length);
     }
 
-    //% blockId=IR_Sensor block="IR_Sensor|pin %pin| |%value|obstacle"
+    //% blockId=IR_Sensor block="IR_Sensor |%value|obstacle"
     //% weight=100
     //% blockGap=10
     //% color="#B53F32"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function IR_Sensor(pin: irPin, value: enIR): boolean {
-        let Pin: DigitalPin;
-        if (pin == 1) {
-            Pin = DigitalPin.P12;
-        }
-        if (pin == 2) {
-            Pin = DigitalPin.P14;
-        }
-        if (pin == 3) {
-            Pin = DigitalPin.P13;
-        }
+    export function IR_Sensor( value: enIR): boolean {
+        let Pin: DigitalPin.P8;
+
 
         pins.setPull(Pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(Pin) == value) {

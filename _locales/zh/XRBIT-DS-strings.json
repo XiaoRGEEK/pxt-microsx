@@ -7,7 +7,10 @@
   "XRbit_DOG.corgi_led_control|block": "%action|灯光",
   "XRbit_DOG.corgi_forward_kinematics|block": "控制机器狗|%leg 的|%joint 的舵机角度为|%angle",
   "XRbit_DOG.Ultrasonic|block": "超声波",
-  "XRbit_DOG.IR_Sensor|block": "红外传感器|引脚 %pin|检测到|%value|障碍物",
+  "XRbit_DOG.IR_Sensor|block": "红外传感器|%value|障碍物",
+
+  "XRbit_DOG.enIR.Get|block": "检测到",
+  "XRbit_DOG.enIR.NoGet|block": "未检测",
 
   "XRbit_DOG.enDogmovement.ACTION_STOP|block": "停止",
   "XRbit_DOG.enDogmovement.ACTION_FORWARD|block": "前进",
