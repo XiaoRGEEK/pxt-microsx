@@ -436,7 +436,7 @@ namespace XRbit_DOG {
     //% color="#B53F32"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function IR_Sensor( value: enIR): boolean {
-        let Pin: DigitalPin.P8;
+        let Pin = DigitalPin.P8;
 
 
         pins.setPull(Pin, PinPullMode.PullUp);
