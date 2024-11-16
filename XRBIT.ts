@@ -410,8 +410,8 @@ namespace XRbit_DOG {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic(): number {
-        Trig = DigitalPin.P1;
-        Echo = DigitalPin.P2;
+        let Trig = DigitalPin.P1;
+        let Echo = DigitalPin.P2;
         // send pulse
         let list: Array<number> = [0, 0, 0, 0, 0];
         for (let i = 0; i < 5; i++) {
