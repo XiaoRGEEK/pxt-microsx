@@ -156,18 +156,6 @@ namespace XRbit_DOG {
 
 
 
-    //% blockId=UartInit block="UartInit"
-    //% weight=94
-    //% blockGap=10
-    //% color="#B53F32"
-    export function UartInit(): void {
-        serial.redirect(
-            SerialPin.P14,
-            SerialPin.P13,
-            BaudRate.BaudRate9600
-        )
-    }
-
     //% blockId=corgi_movement block="corgi_movement|movement %movement"
     //% weight=94
     //% blockGap=10
@@ -435,7 +423,7 @@ namespace XRbit_DOG {
     //% blockGap=10
     //% color="#B53F32"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function IR_Sensor( value: enIR): boolean {
+    export function IR_Sensor(value: enIR): boolean {
         let Pin = DigitalPin.P8;
 
 
@@ -446,5 +434,17 @@ namespace XRbit_DOG {
         else {
             return false;
         }
+    }
+
+    //% blockId=UartInit block="UartInit"
+    //% weight=94
+    //% blockGap=10
+    //% color="#B53F32"
+    export function UartInit(): void {
+        serial.redirect(
+            SerialPin.P14,
+            SerialPin.P13,
+            BaudRate.BaudRate9600
+        )
     }
 }
