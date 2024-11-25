@@ -40,6 +40,8 @@ namespace XRbit_DOG {
         GAIT_TROT: "FF45020000000000000000000000FF",
         GAIT_HOP: "FF45030000000000000000000000FF",
         GAIT_CLIMB: "FF45040000000000000000000000FF"
+
+        POSTURE_HEAD: "FF40%s0000000000000000000000FF"
     }
 
     const LEG_INDEX = {
@@ -389,7 +391,7 @@ namespace XRbit_DOG {
         ACTION_TEMPLATE[3] = angle;
 
 
-        serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE))
+        serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE));
     }
 
     //% blockId=ultrasonic block="Ultrasonic"
@@ -434,6 +436,17 @@ namespace XRbit_DOG {
         else {
             return false;
         }
+    }
+
+    //% blockId=corgi_head_angle block="corgi_head_angle|%angle"
+    //% weight=94
+    //% blockGap=10
+    //% color="#B53F32"
+    //% angle.min=0 angle.max=180
+    export function corgi_head_angle(angle: number): void {
+        const ACTION_TEMPLATE = [0xFF, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF];
+        ACTION_TEMPLATE[2] = angle;
+        serial.writeBuffer(Buffer.fromArray(ACTION_TEMPLATE));
     }
 
     //% blockId=UartInit block="UartInit"

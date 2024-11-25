@@ -8,6 +8,7 @@
   "XRbit_DOG.corgi_forward_kinematics|block": "控制机器狗|%leg 的|%joint 的舵机角度为|%angle",
   "XRbit_DOG.Ultrasonic|block": "超声波",
   "XRbit_DOG.IR_Sensor|block": "红外传感器|%value|障碍物",
+  "XRbit_DOG.corgi_head_angle|block": "机器狗头的角度|%angle (默认90,范围0~180)",
 
   "XRbit_DOG.enIR.Get|block": "检测到",
   "XRbit_DOG.enIR.NoGet|block": "未检测",
